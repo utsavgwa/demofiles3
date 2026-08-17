@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mandrake &amp; Moonstone</title>
+<meta name="description" content="Mandrake &amp; Moonstone is a wizarding apothecary house brewing boldly for a healthier magical world. A fan-made concept page, built to WCAG 2.2 AA.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F3F6F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B120F" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23146044' d='M12 2c2.6 3 4 6.2 4 9.4A4 4 0 0 1 12 15a4 4 0 0 1-4-3.6C8 8.2 9.4 5 12 2Z'/%3E%3Cpath stroke='%23146044' stroke-width='1.8' stroke-linecap='round' d='M12 15v7M8.5 19h7'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mandrake &amp; Moonstone">
+<meta property="og:description" content="A wizarding apothecary house brewing boldly for a healthier magical world.">
+</head>
+<body>
+<style>
+:root{
+  --ink:#0D1512;
+  --ground:#F3F6F2;
+  --surface:#FFFFFF;
+  --surface-2:#E8EEE9;
+  --line:#D3DDD6;
+  --text:#16211C;
+  --text-2:#54655D;
+  --accent:#146044;
+  --accent-hi:#0F5038;
+  --gilt:#7A5410;
+  --gilt-art:#C08A2E;
+  --on-accent:#FFFFFF;
+  --focus:#0B3B2A;
+  --focus-halo:#FFFFFF;
+  --shadow:0 1px 2px rgba(13,21,18,.06), 0 8px 24px rgba(13,21,18,.07);
+  --shadow-lg:0 2px 4px rgba(13,21,18,.08), 0 18px 44px rgba(13,21,18,.14);
+  --r:1.875rem;
+  --maxw:1400px;
+  --hdr-h:71px;
+  --display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0B120F;
+    --surface:#131D18;
+    --surface-2:#1A2620;
+    --line:#33463C;
+    --text:#E7EFE9;
+    --text-2:#A9BDB3;
+    --accent:#5CC79B;
+    --accent-hi:#82DDB7;
+    --gilt:#E0B063;
+    --gilt-art:#D9A64A;
+    --on-accent:#06110C;
+    --focus:#9FE8CB;
+    --focus-halo:#06110C;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px rgba(0,0,0,.45);
+    --shadow-lg:0 2px 4px rgba(0,0,0,.55), 0 18px 44px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0B120F;
+  --surface:#131D18;
+  --surface-2:#1A2620;
+  --line:#33463C;
+  --text:#E7EFE9;
+  --text-2:#A9BDB3;
+  --accent:#5CC79B;
+  --accent-hi:#82DDB7;
+  --gilt:#E0B063;
+  --gilt-art:#D9A64A;
+  --on-accent:#06110C;
+  --focus:#9FE8CB;
+  --focus-halo:#06110C;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px rgba(0,0,0,.45);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.55), 0 18px 44px rgba(0,0,0,.6);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.625;
+  -webkit-font-smoothing:antialiased;
+}
+body.is-locked{overflow:hidden;}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;}
+
+/* focus: two-tone ring readable on any ground (SC 2.4.11 / 2.4.13) */
+:where(a,button,input,summary,[tabindex]):focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:2px;
+  box-shadow:0 0 0 5px var(--focus-halo);
+  border-radius:6px;
+}
+[id]{scroll-margin-top:calc(var(--hdr-h) + 24px);}
+
+.sr-only{
+  position:absolute;width:1px;height:1px;
+  padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+.skip{
+  position:absolute;left:12px;top:-100px;
+  z-index:300;
+  background:var(--accent);color:var(--on-accent);
+  padding:12px 22px;border-radius:0 0 12px 12px;
+  font-weight:600;text-decoration:none;
+  transition:top .18s ease;
+}
+.skip:focus{top:0;}
+
+.wrap{
+  width:100%;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-inline:24px;
+}
+@media (max-width:1500px){ .wrap{max-width:1200px;} }
+@media (max-width:900px){ .wrap{padding-inline:20px;} }
+
+/* ---------- header ---------- */
+.hdr{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:var(--ground);
+  border-bottom:1px solid var(--line);
+}
+.hdr-in{display:flex;align-items:center;height:var(--hdr-h);gap:20px;}
+.brand{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;flex:none;min-height:44px;
+}
+.brand-mark{width:30px;height:30px;flex:none;color:var(--accent);}
+.brand-name{
+  font-family:var(--display);
+  font-size:1.0625rem;
+  letter-spacing:.01em;
+  line-height:1.1;
+  white-space:nowrap;
+}
+.brand-name em{font-style:normal;color:var(--accent);}
+
+.nav{margin-inline-start:40px;flex:1;min-width:0;}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;}
+.nav ul::-webkit-scrollbar{display:none;}
+.nav a{
+  display:inline-flex;align-items:center;
+  min-height:32px;
+  font-size:.8125rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  text-decoration:none;
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:color .25s ease, border-color .25s ease;
+}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+
+.hdr-tools{display:flex;align-items:center;gap:8px;margin-inline-start:auto;flex:none;}
+.tool{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-width:44px;min-height:44px;
+  padding:0 10px;
+  background:none;border:0;cursor:pointer;
+  color:inherit;font-family:inherit;font-size:.8125rem;
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.tool:hover{color:var(--accent);}
+.tool svg{width:18px;height:18px;flex:none;}
+.tool[aria-expanded="true"]{color:var(--accent);}
+.rule-v{width:1px;height:18px;background:var(--line);margin-inline:6px;}
+.burger{display:none;}
+@media (max-width:1080px){
+  .nav{display:none;}
+  .burger{display:inline-flex;}
+}
+@media (max-width:720px){ .tool-label{display:none;} }
+
+/* header disclosure panels */
+.panel{
+  position:absolute;
+  inset-inline:0;
+  top:100%;
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+  box-shadow:var(--shadow);
+  padding:20px 0 26px;
+}
+.panel[hidden]{display:none;}
+.search-form{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.search-form input{
+  flex:1;min-width:200px;
+  min-height:48px;
+  padding:0 16px;
+  font:inherit;
+  color:var(--text);
+  background:var(--ground);
+  border:1.5px solid var(--line);
+  border-radius:999px;
+}
+.search-form input::placeholder{color:var(--text-2);}
+.locale-list{
+  display:flex;flex-wrap:wrap;gap:6px 28px;
+  list-style:none;margin:0;padding:0;
+}
+.locale-list a{
+  display:inline-flex;align-items:center;
+  min-height:44px;
+  text-decoration:none;
+  font-size:.9375rem;
+}
+.locale-list a:hover{color:var(--accent);}
+.locale-list [aria-current="true"]{font-weight:700;color:var(--accent);}
+
+/* ---------- drawer ---------- */
+.drawer{position:fixed;inset:0;z-index:200;}
+.drawer[hidden]{display:none;}
+.drawer-scrim{position:absolute;inset:0;background:rgba(6,17,12,.55);border:0;width:100%;cursor:pointer;}
+.drawer-panel{
+  position:absolute;inset-block:0;inset-inline-end:0;
+  width:min(420px,100%);
+  background:var(--surface);
+  padding:20px 24px 40px;
+  overflow-y:auto;
+  display:flex;flex-direction:column;gap:26px;
+}
+.drawer-head{display:flex;justify-content:flex-end;}
+.drawer nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;}
+.drawer nav a{
+  display:flex;align-items:center;
+  min-height:52px;
+  font-size:1.125rem;
+  text-decoration:none;
+  border-bottom:1px solid var(--line);
+}
+.drawer nav a:hover{color:var(--accent);}
+
+/* ---------- section rhythm ---------- */
+.sect{padding-block:50px;}
+.sect-tight{padding-block:26px;}
+.sect-tint{background:var(--surface-2);}
+@media (max-width:768px){ .sect{padding-block:40px;} }
+
+.sect-head{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  margin-bottom:30px;
+}
+.sect-head h2{margin:0;}
+h2{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:2.25rem;
+  line-height:1.2;
+  letter-spacing:-.01em;
+  text-wrap:balance;
+  margin:0 0 .5em;
+}
+h3{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:1.5rem;
+  line-height:1.3;
+  text-wrap:balance;
+  margin:0;
+}
+@media (max-width:768px){
+  h2{font-size:1.6rem;}
+  .sect-head{flex-direction:column;align-items:flex-start;}
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  min-height:48px;
+  padding:12px 34px;
+  border-radius:999px;
+  font-family:inherit;
+  font-size:.875rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  text-decoration:none;
+  border:1.5px solid transparent;
+  cursor:pointer;
+  transition:background-color .2s ease, color .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--accent);color:var(--on-accent);}
+.btn-primary:hover{background:var(--accent-hi);}
+.btn-ghost{border-color:var(--text-2);color:var(--text);background:none;}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+.btn svg{width:16px;height:16px;}
+.link-u{
+  display:inline-flex;align-items:center;
+  min-height:24px;
+  font-size:.9375rem;
+  text-decoration:none;
+  padding-bottom:3px;
+  background-image:linear-gradient(var(--accent),var(--accent));
+  background-size:100% 1.5px;
+  background-repeat:no-repeat;
+  background-position:0 100%;
+  color:var(--accent);
+  transition:background-size .28s ease;
+}
+.link-u:hover{background-size:40% 1.5px;}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  border-radius:var(--r);
+  overflow:hidden;
+  isolation:isolate;
+  min-height:520px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:96px 32px 72px;
+  color:#F2F7F3;
+  background:
+    radial-gradient(120% 90% at 18% 12%, rgba(63,169,127,.55) 0%, rgba(63,169,127,0) 55%),
+    radial-gradient(90% 70% at 84% 78%, rgba(192,138,46,.42) 0%, rgba(192,138,46,0) 60%),
+    radial-gradient(70% 60% at 60% 30%, rgba(21,74,120,.5) 0%, rgba(21,74,120,0) 65%),
+    linear-gradient(160deg,#0A1712 0%,#0D2119 45%,#08110E 100%);
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  z-index:-1;
+  opacity:.22;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+.hero-stars{position:absolute;inset:0;z-index:-1;opacity:.7;}
+.hero h1{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(1.9rem,4.4vw,2.75rem);
+  line-height:1.18;
+  letter-spacing:-.015em;
+  max-width:22ch;
+  margin:0 auto;
+  text-wrap:balance;
+}
+.hero h1 .glyph{
+  display:inline-block;
+  width:.62em;height:1.05em;
+  vertical-align:-.15em;
+  margin-inline-end:.34em;
+  color:#E7B75A;
+}
+.hero p{
+  margin:18px auto 0;
+  font-size:1.125rem;
+  color:#D6E7DC;
+  max-width:38ch;
+}
+.scroll-dot{
+  margin-top:44px;
+  width:48px;height:48px;
+  border:2px solid rgba(242,247,243,.8);
+  border-radius:50%;
+  display:grid;place-items:center;
+  color:#F2F7F3;
+  background:none;
+  cursor:pointer;
+  transition:background-color .25s ease, transform .25s ease;
+}
+.scroll-dot:hover{background:rgba(242,247,243,.16);transform:translateY(3px);}
+.scroll-dot:focus-visible{outline-color:#F2F7F3;box-shadow:0 0 0 5px rgba(6,17,12,.9);}
+.scroll-dot svg{width:20px;height:20px;}
+
+/* ---------- thesis ---------- */
+.thesis{
+  text-align:center;
+  font-family:var(--display);
+  font-size:clamp(1.4rem,2.6vw,2rem);
+  line-height:1.32;
+  max-width:26ch;
+  margin:0 auto;
+  text-wrap:balance;
+}
+
+/* ---------- feature card ---------- */
+.feature{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-radius:var(--r);
+  overflow:hidden;
+  background:var(--surface);
+  box-shadow:var(--shadow-lg);
+  text-decoration:none;
+  color:inherit;
+  transition:transform .3s ease;
+}
+.feature:hover{transform:translateY(-2px);}
+.feature:hover h2, .feature:focus-visible h2{color:var(--accent);}
+.feature h2{transition:color .3s ease;font-size:1.75rem;margin-bottom:16px;}
+.feature-art{min-height:340px;}
+.feature-body{padding:44px;align-self:center;}
+.feature-body p{color:var(--text-2);margin:0 0 22px;max-width:52ch;}
+.feature-body p strong{color:var(--text);font-weight:600;}
+@media (max-width:900px){
+  .feature{grid-template-columns:1fr;}
+  .feature-art{min-height:220px;}
+  .feature-body{padding:28px;}
+}
+
+.art{width:100%;height:100%;display:block;}
+
+/* ---------- grids ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:44px 3%;}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:16px;}
+
+/* ---------- story cards ---------- */
+.story{
+  position:relative;
+  display:flex;flex-direction:column;
+  height:100%;
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  overflow:hidden;
+  background:var(--surface);
+  text-decoration:none;color:inherit;
+  box-shadow:var(--shadow);
+  transition:box-shadow .3s ease, transform .3s ease;
+}
+.story:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);}
+.story-art{height:220px;position:relative;}
+.story-art::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,17,14,.42),transparent 55%);
+}
+.story-body{display:flex;flex-direction:column;flex:1;padding:24px;}
+.story h3{
+  font-size:1.0625rem;
+  font-weight:600;
+  font-family:var(--body);
+  line-height:1.4;
+  margin-bottom:18px;
+  transition:color .3s ease;
+}
+.story:hover h3, .story:focus-visible h3{color:var(--accent);}
+.meta{
+  margin-top:auto;
+  display:flex;align-items:center;gap:10px;
+  font-size:.8125rem;color:var(--text-2);
+  font-variant-numeric:tabular-nums;
+}
+.meta .chip{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--surface-2);color:var(--accent);
+  display:grid;place-items:center;flex:none;
+}
+.meta .chip svg{width:15px;height:15px;}
+.story::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--gilt));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .45s ease;
+}
+.story:hover::after{transform:scaleX(1);}
+
+/* ---------- news cards ---------- */
+.news{
+  display:flex;flex-direction:column;height:100%;
+  border:1px solid var(--line);
+  border-radius:10px;
+  overflow:hidden;
+  background:var(--surface);
+  text-decoration:none;color:inherit;
+  transition:box-shadow .3s ease, border-color .3s ease;
+}
+.news:hover{box-shadow:var(--shadow-lg);border-color:var(--accent);}
+.news-bar{height:6px;background:var(--text-2);flex:none;}
+.news-lead .news-bar{background:var(--accent);}
+.news-body{display:flex;flex-direction:column;flex:1;padding:24px;}
+.news h3{
+  font-family:var(--body);
+  font-size:1rem;font-weight:600;line-height:1.4;
+  transition:color .3s ease;
+}
+.news:hover h3, .news:focus-visible h3{color:var(--accent);}
+.news-foot{margin-top:auto;padding-top:24px;}
+.news-sep{border:0;height:1px;background:var(--line);margin:0 0 16px;}
+.news-row{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.arrow-round{
+  width:32px;height:32px;border-radius:50%;flex:none;
+  background:var(--surface-2);
+  display:grid;place-items:center;
+  transition:background-color .3s ease,color .3s ease;
+}
+.news:hover .arrow-round, .news:focus-visible .arrow-round{background:var(--accent);color:var(--on-accent);}
+.arrow-round svg{width:15px;height:15px;}
+
+/* ---------- explore cards ---------- */
+.explore{
+  display:flex;flex-direction:column;height:100%;
+  border-radius:var(--r) var(--r) 12px 12px;
+  overflow:hidden;
+  background:var(--surface-2);
+  text-decoration:none;color:inherit;
+}
+.explore-art{height:230px;}
+.explore-body{display:flex;flex-direction:column;flex:1;padding:34px 26px 40px;}
+.explore h3{margin-bottom:18px;font-size:1.375rem;transition:color .3s ease;}
+.explore:hover h3, .explore:focus-visible h3{color:var(--accent);}
+.explore p{margin:0 0 22px;color:var(--text-2);font-size:.9375rem;}
+.explore .link-u{margin-top:auto;align-self:flex-start;}
+
+/* ---------- cta ---------- */
+.cta{
+  background:var(--ink);
+  color:#EDF3EE;
+  text-align:center;
+  padding:64px 24px;
+  border-radius:var(--r);
+  position:relative;
+  overflow:hidden;
+}
+.cta::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(70% 120% at 50% 0%, rgba(63,169,127,.28), transparent 70%);
+}
+.cta > *{position:relative;}
+.cta h2{color:#F4F8F5;margin-bottom:12px;}
+.cta p{margin:0 auto 26px;color:#BDD2C6;max-width:56ch;}
+.cta .btn-primary{background:#5CC79B;color:#06110C;}
+.cta .btn-primary:hover{background:#82DDB7;}
+.cta .btn-primary:focus-visible{outline-color:#F2F7F3;box-shadow:0 0 0 5px rgba(6,17,12,.9);}
+
+/* ---------- footer ---------- */
+.ftr{
+  border-top:1px solid var(--line);
+  padding-block:48px 40px;
+  margin-top:80px;
+  background:var(--surface);
+}
+.ftr-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;}
+.socials{display:flex;gap:14px;list-style:none;margin:0;padding:0;}
+.socials a{
+  display:grid;place-items:center;
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);
+  color:var(--text-2);
+  transition:color .25s ease,border-color .25s ease;
+}
+.socials a:hover{color:var(--accent);border-color:var(--accent);}
+.socials svg{width:17px;height:17px;}
+.ftr-nav{
+  display:flex;flex-wrap:wrap;gap:4px 34px;
+  list-style:none;margin:36px 0 0;padding:0;
+}
+.ftr-nav a{
+  display:inline-flex;align-items:center;min-height:44px;
+  font-size:.9375rem;text-decoration:none;color:var(--text);
+}
+.ftr-nav a:hover{color:var(--accent);}
+.ftr-note{
+  margin-top:32px;font-size:.9375rem;color:var(--text-2);max-width:78ch;
+}
+.ftr-note a{color:var(--accent);}
+.ftr-legal{
+  display:flex;flex-wrap:wrap;gap:12px 44px;
+  justify-content:space-between;align-items:center;
+  margin-top:32px;
+}
+.ftr-legal ul{display:flex;flex-wrap:wrap;gap:2px 24px;list-style:none;margin:0;padding:0;}
+.ftr-legal a{
+  display:inline-flex;align-items:center;min-height:44px;
+  font-size:.875rem;text-decoration:none;color:var(--text-2);
+}
+.ftr-legal a:hover{color:var(--accent);}
+.copy{font-size:.875rem;color:var(--text-2);margin:0;}
+
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+
+
+<a class="skip" href="#main-content">Skip to content</a>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <path d="M12 2c2.6 3 4 6.2 4 9.4A4 4 0 0 1 12 15a4 4 0 0 1-4-3.6C8 8.2 9.4 5 12 2Z" fill="currentColor" opacity=".85"></path>
+        <path d="M12 15v7M8.5 19h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+      </svg>
+      <span class="brand-name">Mandrake &amp; <em>Moonstone</em></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="#thesis">About</a></li>
+        <li><a href="#feature">Alchemy</a></li>
+        <li><a href="#stories">Our Stories</a></li>
+        <li><a href="#news">Gazette</a></li>
+        <li><a href="#explore">Patrons</a></li>
+        <li><a href="#explore">Careers</a></li>
+      </ul>
+    </nav>
+
+    <div class="hdr-tools">
+      <button class="tool" type="button" id="search-btn" aria-label="Search this site"
+              aria-expanded="false" aria-controls="search-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="tool-label" aria-hidden="true">Search</span>
+      </button>
+
+      <span class="rule-v" aria-hidden="true"></span>
+
+      <button class="tool" type="button" id="locale-btn" aria-label="Change region, currently Wizarding Britain"
+              aria-expanded="false" aria-controls="locale-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"></path></svg>
+        <span class="tool-label" aria-hidden="true">Wizarding Britain</span>
+      </button>
+
+      <button class="tool burger" type="button" id="menu-btn" aria-label="Open menu"
+              aria-expanded="false" aria-controls="drawer">
+        <svg viewBox="0 0 28 24" fill="currentColor" aria-hidden="true" focusable="false"><rect width="28" height="2"></rect><rect y="11" width="28" height="2"></rect><rect y="22" width="28" height="2"></rect></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="panel" id="search-panel" hidden>
+    <div class="wrap">
+      <form class="search-form" role="search" id="search-form">
+        <label class="sr-only" for="site-search">Search Mandrake &amp; Moonstone</label>
+        <input type="search" id="site-search" name="q" placeholder="Remedies, notices, people" autocomplete="off">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="panel" id="locale-panel" hidden>
+    <div class="wrap">
+      <h2 class="sr-only">Choose a region</h2>
+      <ul class="locale-list">
+        <li><a href="#top" aria-current="true">Wizarding Britain — English</a></li>
+        <li><a href="#top">Ilvermorny &amp; North America — English</a></li>
+        <li><a href="#top">Beauxbatons Region — Français</a></li>
+        <li><a href="#top">Durmstrang Region — Norsk</a></li>
+        <li><a href="#top">Mahoutokoro — 日本語</a></li>
+        <li><a href="#top">Uagadou — Kiswahili</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <button class="drawer-scrim" type="button" tabindex="-1" aria-hidden="true"></button>
+  <div class="drawer-panel">
+    <div class="drawer-head">
+      <button class="tool" type="button" id="drawer-close" aria-label="Close menu">
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20 1.4 11.4 10 20 18.6 18.6 20 10 11.4 1.4 20 0 18.6 8.6 10 0 1.4 1.4 0 10 8.6 18.6 0 20 1.4Z"></path></svg>
+      </button>
+    </div>
+    <nav aria-label="Site menu">
+      <ul>
+        <li><a href="#thesis">About</a></li>
+        <li><a href="#feature">Alchemy</a></li>
+        <li><a href="#stories">Our Stories</a></li>
+        <li><a href="#news">Gazette</a></li>
+        <li><a href="#explore">Patrons</a></li>
+        <li><a href="#explore">Careers</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<p class="sr-only" id="live-status" role="status" aria-live="polite"></p>
+
+<main id="main-content" tabindex="-1">
+  <span id="top"></span>
+
+  <section class="sect" style="padding-top:24px;" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero">
+        <canvas class="hero-stars" id="stars" aria-hidden="true"></canvas>
+        <div>
+          <h1 id="hero-title">
+            <svg class="glyph" viewBox="0 0 100 348" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M0 0h34.7C66 26.8 100 95.9 100 172c1.5 79-33.7 149-65.3 176H0V0Z"></path>
+            </svg>Mandrake &amp; Moonstone keeps a five-century promise
+          </h1>
+          <p>to brew boldly for a healthier wizarding world</p>
+          <button class="scroll-dot" type="button" id="scroll-btn" aria-label="Scroll to the opening statement">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.7 18.7l6-6a1 1 0 0 0 0-1.4l-6-6a1 1 0 1 0-1.4 1.4L13.6 12l-5.3 5.3a1 1 0 1 0 1.4 1.4z" transform="rotate(90 12 12)"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect-tight" id="thesis" aria-label="Our purpose">
+    <div class="wrap">
+      <p class="thesis">Unlocking a new era of care with first-in-cauldron remedies.</p>
+    </div>
+  </section>
+
+  <section class="sect" id="feature" aria-labelledby="feature-title">
+    <div class="wrap">
+      <a class="feature" href="#news" aria-label="Read the notice: Wizengamot approves our lycanthropy draught">
+        <div class="feature-art">
+          <svg class="art" viewBox="0 0 640 420" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A stoppered phial of silvered draught on an apothecary bench beneath a full moon">
+            <defs>
+              <linearGradient id="fSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0B2A22"></stop><stop offset="1" stop-color="#07130F"></stop>
+              </linearGradient>
+              <radialGradient id="fMoon" cx="50%" cy="50%">
+                <stop offset="0" stop-color="#F6EFD8"></stop><stop offset="1" stop-color="#D9C79A"></stop>
+              </radialGradient>
+              <linearGradient id="fLiq" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#7FE3BC"></stop><stop offset="1" stop-color="#1D7E5C"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="420" fill="url(#fSky)"></rect>
+            <circle cx="470" cy="118" r="96" fill="#F6EFD8" opacity=".08"></circle>
+            <circle cx="470" cy="118" r="62" fill="url(#fMoon)" opacity=".92"></circle>
+            <g stroke="#3FA97F" stroke-width="1" opacity=".35" fill="none">
+              <path d="M0 300c70-26 120 18 190-6s110-52 190-30 180 6 260-20"></path>
+              <path d="M0 336c80-18 130 22 210 2s120-44 200-24 150 12 230-10"></path>
+            </g>
+            <rect x="0" y="332" width="640" height="88" fill="#0F231C"></rect>
+            <g transform="translate(196 150)">
+              <path d="M42 0h36v46l40 74a54 54 0 0 1-58 82H60a54 54 0 0 1-58-82l40-74Z" fill="#0D3128" stroke="#63C7A2" stroke-width="2.5"></path>
+              <path d="M20 118h80a48 48 0 0 1 4 20 50 50 0 0 1-52 62 50 50 0 0 1-52-62 48 48 0 0 1 20-20Z" fill="url(#fLiq)" opacity=".92"></path>
+              <rect x="36" y="-16" width="48" height="20" rx="6" fill="#C08A2E"></rect>
+              <circle cx="46" cy="150" r="5" fill="#EAFBF3" opacity=".7"></circle>
+              <circle cx="70" cy="132" r="3.5" fill="#EAFBF3" opacity=".55"></circle>
+              <circle cx="60" cy="166" r="2.5" fill="#EAFBF3" opacity=".5"></circle>
+            </g>
+            <g fill="#C08A2E" opacity=".85">
+              <circle cx="128" cy="92" r="2"></circle><circle cx="212" cy="60" r="1.6"></circle><circle cx="330" cy="96" r="1.8"></circle>
+              <circle cx="560" cy="212" r="1.6"></circle><circle cx="86" cy="188" r="1.4"></circle>
+            </g>
+          </svg>
+        </div>
+        <div class="feature-body">
+          <h2 id="feature-title">Wizengamot approves our lycanthropy draught</h2>
+          <p><strong>A new chapter for lycanthropic care and moonstone science.</strong></p>
+          <p>We expect to place this first-in-cauldron remedy in the hands of the lycanthropic community by the November moon, pending final registration with the Department for the Regulation and Control of Magical Creatures.</p>
+          <span class="link-u" aria-hidden="true">Learn more</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sect sect-tint" id="stories" aria-labelledby="stories-title">
+    <div class="wrap">
+      <div class="sect-head">
+        <h2 id="stories-title">Our Stories</h2>
+        <a class="btn btn-ghost" href="#stories">View all stories
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.7 18.7l6-6a1 1 0 0 0 0-1.4l-6-6a1 1 0 1 0-1.4 1.4L13.6 12l-5.3 5.3a1 1 0 1 0 1.4 1.4z"></path></svg>
+        </a>
+      </div>
+
+      <div class="grid-3">
+        <a class="story" href="#stories" aria-label="Story: Cultivating steadier mandrake for restorative draughts, 24 June 2026">
+          <div class="story-art">
+            <svg class="art" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A greenhouse of young mandrake seedlings in terracotta pots">
+              <defs><linearGradient id="s1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#123F32"></stop><stop offset="1" stop-color="#0A241D"></stop></linearGradient></defs>
+              <rect width="400" height="260" fill="url(#s1)"></rect>
+              <g stroke="#3FA97F" stroke-width="1.2" opacity=".28" fill="none">
+                <path d="M0 60h400M0 120h400M0 180h400M80 0v260M200 0v260M320 0v260"></path>
+              </g>
+              <g>
+                <rect x="60" y="176" width="70" height="52" rx="6" fill="#9C5B39"></rect>
+                <rect x="168" y="164" width="80" height="62" rx="6" fill="#B06B45"></rect>
+                <rect x="284" y="182" width="62" height="46" rx="6" fill="#8B4F33"></rect>
+                <path d="M95 176c-14-26-4-52 0-62 6 12 16 34 0 62Z" fill="#4FBE92"></path>
+                <path d="M208 164c-18-30-6-64 0-76 8 14 20 42 0 76Z" fill="#63D3A6"></path>
+                <path d="M315 182c-12-22-4-44 0-52 5 10 13 28 0 52Z" fill="#4FBE92"></path>
+              </g>
+              <rect y="226" width="400" height="34" fill="#071410"></rect>
+            </svg>
+          </div>
+          <div class="story-body">
+            <h3>Cultivating steadier mandrake for restorative draughts</h3>
+            <div class="meta">
+              <span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" focusable="false"><path d="M7 2v3M17 2v3M3 9h18M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"></path></svg></span>
+              <time datetime="2026-06-24">24 June 2026</time>
+            </div>
+          </div>
+        </a>
+
+        <a class="story" href="#stories" aria-label="Story: Setting a new testing standard in the fight against spattergroit, 21 May 2026">
+          <div class="story-art">
+            <svg class="art" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A brewer testing a cauldron beside a rack of coloured phials">
+              <defs><linearGradient id="s2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14304A"></stop><stop offset="1" stop-color="#08161F"></stop></linearGradient></defs>
+              <rect width="400" height="260" fill="url(#s2)"></rect>
+              <circle cx="300" cy="70" r="80" fill="#3FA97F" opacity=".12"></circle>
+              <g transform="translate(120 96)">
+                <ellipse cx="80" cy="94" rx="86" ry="18" fill="#050D10"></ellipse>
+                <path d="M8 34h144a72 72 0 0 1-72 72A72 72 0 0 1 8 34Z" fill="#1C2A31" stroke="#5FA7C4" stroke-width="2"></path>
+                <ellipse cx="80" cy="34" rx="72" ry="16" fill="#2C7F63"></ellipse>
+                <ellipse cx="80" cy="32" rx="58" ry="11" fill="#63D3A6" opacity=".7"></ellipse>
+                <path d="M60 20c6-14-8-20-2-34M96 18c8-16-6-22 0-36" stroke="#9FE8CB" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"></path>
+              </g>
+              <g transform="translate(40 150)">
+                <rect x="0" y="52" width="64" height="8" rx="3" fill="#7A5230"></rect>
+                <rect x="6" y="18" width="14" height="36" rx="6" fill="#C05B5B"></rect>
+                <rect x="26" y="10" width="14" height="44" rx="6" fill="#C08A2E"></rect>
+                <rect x="46" y="24" width="14" height="30" rx="6" fill="#5FA7C4"></rect>
+              </g>
+              <rect y="228" width="400" height="32" fill="#050D10"></rect>
+            </svg>
+          </div>
+          <div class="story-body">
+            <h3>Setting a new testing standard in the fight against spattergroit</h3>
+            <div class="meta">
+              <span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" focusable="false"><path d="M7 2v3M17 2v3M3 9h18M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"></path></svg></span>
+              <time datetime="2026-05-21">21 May 2026</time>
+            </div>
+          </div>
+        </a>
+
+        <a class="story" href="#stories" aria-label="Story: Finding the words, how one family named a curse at last, 18 May 2026">
+          <div class="story-art">
+            <svg class="art" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Two figures walking a lantern-lit path at dusk">
+              <defs><linearGradient id="s3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A2A46"></stop><stop offset="1" stop-color="#12101C"></stop></linearGradient></defs>
+              <rect width="400" height="260" fill="url(#s3)"></rect>
+              <circle cx="88" cy="66" r="30" fill="#EFE3C0" opacity=".8"></circle>
+              <path d="M0 200c60-8 90-34 150-30s120 40 250 24v66H0Z" fill="#0C1017"></path>
+              <path d="M0 224c80-6 110-20 180-16s130 26 220 14v38H0Z" fill="#070A0F"></path>
+              <g fill="#1A2530">
+                <path d="M226 168c8 0 12 6 12 14l4 46h-32l4-46c0-8 4-14 12-14Z"></path>
+                <path d="M266 174c8 0 12 6 12 14l4 40h-32l4-40c0-8 4-14 12-14Z"></path>
+                <circle cx="226" cy="156" r="10"></circle><circle cx="266" cy="162" r="9"></circle>
+              </g>
+              <g>
+                <line x1="292" y1="140" x2="292" y2="186" stroke="#6B5638" stroke-width="3"></line>
+                <circle cx="292" cy="134" r="26" fill="#F3D98C" opacity=".18"></circle>
+                <circle cx="292" cy="134" r="12" fill="#F3D98C"></circle>
+              </g>
+            </svg>
+          </div>
+          <div class="story-body">
+            <h3>Finding the words: how one family named a curse at last</h3>
+            <div class="meta">
+              <span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" focusable="false"><path d="M7 2v3M17 2v3M3 9h18M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"></path></svg></span>
+              <time datetime="2026-05-18">18 May 2026</time>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect" id="news" aria-labelledby="news-title">
+    <div class="wrap">
+      <div class="sect-head">
+        <h2 id="news-title">From the Gazette</h2>
+        <a class="btn btn-ghost" href="#news">View all notices
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.7 18.7l6-6a1 1 0 0 0 0-1.4l-6-6a1 1 0 1 0-1.4 1.4L13.6 12l-5.3 5.3a1 1 0 1 0 1.4 1.4z"></path></svg>
+        </a>
+      </div>
+
+      <div class="grid-4">
+        <a class="news news-lead" href="#news" aria-label="Notice, 5 August 2026: Wizengamot approves Lunaris Draught, the first remedy to treat the cause of lycanthropy rather than its symptoms">
+          <span class="news-bar" aria-hidden="true"></span>
+          <div class="news-body">
+            <h3>Wizengamot Approves Lunaris Draught, the First Remedy to Treat the Cause of Lycanthropy Rather Than Its Symptoms</h3>
+            <div class="news-foot">
+              <hr class="news-sep" aria-hidden="true">
+              <div class="news-row">
+                <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16" aria-hidden="true" focusable="false"><path d="M7 2v3M17 2v3M3 9h18M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"></path></svg> <time datetime="2026-08-05">5 August 2026</time></span>
+                <span class="arrow-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M11.3 5.7 16.6 11H5a1 1 0 1 0 0 2h11.6l-5.3 5.3a1 1 0 1 0 1.4 1.4l7-7a1 1 0 0 0 0-1.4l-7-7a1 1 0 1 0-1.4 1.4Z"></path></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a class="news" href="#news" aria-label="Notice, 30 July 2026: Mandrake and Moonstone reports first-quarter vault results, with brewing capacity and ingredient supply on plan">
+          <span class="news-bar" aria-hidden="true"></span>
+          <div class="news-body">
+            <h3>Mandrake &amp; Moonstone Reports First-Quarter Vault Results, With Brewing Capacity and Ingredient Supply On Plan</h3>
+            <div class="news-foot">
+              <hr class="news-sep" aria-hidden="true">
+              <div class="news-row">
+                <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16" aria-hidden="true" focusable="false"><path d="M7 2v3M17 2v3M3 9h18M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"></path></svg> <time datetime="2026-07-30">30 July 2026</time></span>
+                <span class="arrow-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M11.3 5.7 16.6 11H5a1 1 0 1 0 0 2h11.6l-5.3 5.3a1 1 0 1 0 1.4 1.4l7-7a1 1 0 0 0 0-1.4l-7-7a1 1 0 1 0-1.4 1.4Z"></path></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a class="news" href="#news" aria-label="Notice, 22 July 2026: Lunaris Draught cleared across the Confederation's eastern provinces as the first moonstone-based treatment for lycanthropy">
+          <span class="news-bar" aria-hidden="true"></span>
+          <div class="news-body">
+            <h3>Lunaris Draught Cleared Across the Confederation's Eastern Provinces as the First Moonstone-Based Treatment for Lycanthropy</h3>
+            <div class="news-foot">
+              <hr class="news-sep" aria-hidden="true">
+              <div class="news-row">
+                <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16" aria-hidden="true" focusable="false"><path d="M7 2v3M17 2v3M3 9h18M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"></path></svg> <time datetime="2026-07-22">22 July 2026</time></span>
+                <span class="arrow-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M11.3 5.7 16.6 11H5a1 1 0 1 0 0 2h11.6l-5.3 5.3a1 1 0 1 0 1.4 1.4l7-7a1 1 0 0 0 0-1.4l-7-7a1 1 0 1 0-1.4 1.4Z"></path></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a class="news" href="#news" aria-label="Notice, 16 July 2026: Bezoar Tincture shows consistent clearance of hard-to-treat curse residues in third-stage healer trials">
+          <span class="news-bar" aria-hidden="true"></span>
+          <div class="news-body">
+            <h3>Bezoar Tincture Shows Consistent Clearance of Hard-to-Treat Curse Residues in Third-Stage Healer Trials</h3>
+            <div class="news-foot">
+              <hr class="news-sep" aria-hidden="true">
+              <div class="news-row">
+                <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16" aria-hidden="true" focusable="false"><path d="M7 2v3M17 2v3M3 9h18M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"></path></svg> <time datetime="2026-07-16">16 July 2026</time></span>
+                <span class="arrow-round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M11.3 5.7 16.6 11H5a1 1 0 1 0 0 2h11.6l-5.3 5.3a1 1 0 1 0 1.4 1.4l7-7a1 1 0 0 0 0-1.4l-7-7a1 1 0 1 0-1.4 1.4Z"></path></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect" id="explore" aria-labelledby="explore-title">
+    <div class="wrap">
+      <h2 id="explore-title" style="text-align:center;">Learn more about Mandrake &amp; Moonstone</h2>
+      <div class="grid-3" style="margin-top:30px;">
+
+        <a class="explore" href="#explore" aria-label="Join Us: work beside brewers, herbologists and healers">
+          <div class="explore-art">
+            <svg class="art" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Apprentice brewers standing at a long bench">
+              <defs><linearGradient id="e1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B5A45"></stop><stop offset="1" stop-color="#0B241C"></stop></linearGradient></defs>
+              <rect width="400" height="260" fill="url(#e1)"></rect>
+              <g fill="#EAF6EF" opacity=".9">
+                <circle cx="112" cy="118" r="22"></circle><circle cx="200" cy="104" r="26"></circle><circle cx="288" cy="120" r="20"></circle>
+              </g>
+              <g fill="#3FA97F">
+                <path d="M112 146c26 0 40 18 42 50h-84c2-32 16-50 42-50Z"></path>
+                <path d="M200 136c30 0 46 22 48 60h-96c2-38 18-60 48-60Z"></path>
+                <path d="M288 150c24 0 37 17 39 46h-78c2-29 15-46 39-46Z"></path>
+              </g>
+              <rect y="196" width="400" height="64" fill="#0C1F19"></rect>
+              <g fill="#C08A2E" opacity=".9"><circle cx="60" cy="60" r="3"></circle><circle cx="342" cy="52" r="2.4"></circle><circle cx="250" cy="40" r="2"></circle></g>
+            </svg>
+          </div>
+          <div class="explore-body">
+            <h3>Join Us</h3>
+            <p>Work beside brewers, herbologists and healers who push one another toward better remedies each season.</p>
+            <span class="link-u" aria-hidden="true">Learn more</span>
+          </div>
+        </a>
+
+        <a class="explore" href="#explore" aria-label="Patrons: how a five-century house funds long brews and the trials that prove them">
+          <div class="explore-art">
+            <svg class="art" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A ledger line rising past stacked coins">
+              <defs><linearGradient id="e2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B2418"></stop><stop offset="1" stop-color="#13100A"></stop></linearGradient></defs>
+              <rect width="400" height="260" fill="url(#e2)"></rect>
+              <g fill="none" stroke="#C08A2E" stroke-width="2" opacity=".55">
+                <path d="M40 200l60-38 52 26 60-62 56 30 60-72"></path>
+              </g>
+              <g fill="#C08A2E">
+                <circle cx="40" cy="200" r="5"></circle><circle cx="100" cy="162" r="5"></circle><circle cx="152" cy="188" r="5"></circle>
+                <circle cx="212" cy="126" r="5"></circle><circle cx="268" cy="156" r="5"></circle><circle cx="328" cy="84" r="6"></circle>
+              </g>
+              <g fill="#E0C078">
+                <rect x="60" y="214" width="44" height="9" rx="4"></rect><rect x="66" y="202" width="32" height="9" rx="4"></rect>
+                <rect x="130" y="214" width="44" height="9" rx="4"></rect>
+              </g>
+              <rect y="232" width="400" height="28" fill="#0B0906"></rect>
+            </svg>
+          </div>
+          <div class="explore-body">
+            <h3>Patrons</h3>
+            <p>See how a five-century house funds long brews, rare ingredients, and the trials that prove them.</p>
+            <span class="link-u" aria-hidden="true">Learn more</span>
+          </div>
+        </a>
+
+        <a class="explore" href="#explore" aria-label="Research and Brewing: turning herbology into remedies that answer urgent need">
+          <div class="explore-art">
+            <svg class="art" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A glowing distillation coil above a shallow basin">
+              <defs><linearGradient id="e3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14344A"></stop><stop offset="1" stop-color="#07141C"></stop></linearGradient></defs>
+              <rect width="400" height="260" fill="url(#e3)"></rect>
+              <circle cx="210" cy="118" r="86" fill="#5FA7C4" opacity=".12"></circle>
+              <g fill="none" stroke="#7FE3BC" stroke-width="3" stroke-linecap="round">
+                <path d="M150 76h64M182 76v40"></path>
+                <path d="M182 116c-30 12-44 40-32 66 10 22 40 30 62 18"></path>
+                <path d="M182 116c30 12 44 40 32 66"></path>
+              </g>
+              <circle cx="212" cy="182" r="26" fill="#3FA97F" opacity=".65"></circle>
+              <circle cx="212" cy="182" r="12" fill="#9FE8CB"></circle>
+              <g fill="#C08A2E" opacity=".85"><circle cx="86" cy="70" r="2.4"></circle><circle cx="320" cy="62" r="2"></circle><circle cx="340" cy="196" r="2.2"></circle></g>
+              <rect y="230" width="400" height="30" fill="#050C11"></rect>
+            </svg>
+          </div>
+          <div class="explore-body">
+            <h3>Research &amp; Brewing</h3>
+            <p>We turn hard-won herbology into remedies that answer urgent need and set a new standard of care.</p>
+            <span class="link-u" aria-hidden="true">Learn more</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sect" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div class="cta">
+        <h2 id="cta-title">Sign up for the Owl Post</h2>
+        <p>Vault results, house milestones, and how we are keeping our promise to patients, to our brewers, and to the land the ingredients come from.</p>
+        <a class="btn btn-primary" href="#top">Sign up</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <h2 class="sr-only">Site footer</h2>
+    <div class="ftr-top">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M12 2c2.6 3 4 6.2 4 9.4A4 4 0 0 1 12 15a4 4 0 0 1-4-3.6C8 8.2 9.4 5 12 2Z" fill="currentColor" opacity=".85"></path>
+          <path d="M12 15v7M8.5 19h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+        </svg>
+        <span class="brand-name">Mandrake &amp; <em>Moonstone</em></span>
+      </a>
+      <ul class="socials">
+        <li><a href="#top" aria-label="Owl post">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M3 7l9 6 9-6"></path><rect x="3" y="5" width="18" height="14" rx="2"></rect></svg>
+        </a></li>
+        <li><a href="#top" aria-label="Floo network">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M12 3c3 4 5 6.6 5 9.5A5 5 0 0 1 7 12.5C7 9.6 9 7 12 3Z"></path></svg>
+        </a></li>
+        <li><a href="#top" aria-label="Notice board">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 9h10M7 13h6"></path></svg>
+        </a></li>
+      </ul>
+    </div>
+
+    <nav aria-label="Footer">
+      <ul class="ftr-nav">
+        <li><a href="#top">Apothecaries</a></li>
+        <li><a href="#top">Contact us</a></li>
+        <li><a href="#explore">Careers</a></li>
+        <li><a href="#news">Vault Highlights</a></li>
+        <li><a href="#top">Healers</a></li>
+        <li><a href="#top">Patients</a></li>
+      </ul>
+    </nav>
+
+    <p class="ftr-note">This page describes the work of Mandrake &amp; Moonstone across the wizarding world. For remedies licensed in your own province, use the <a href="#top">apothecary finder</a>. An illustrative fan-made concept — not affiliated with any real company or rights holder.</p>
+
+    <div class="ftr-legal">
+      <nav aria-label="Legal">
+        <ul>
+          <li><a href="#top">Terms and Conditions</a></li>
+          <li><a href="#top">Privacy Notice</a></li>
+          <li><a href="#top">Owl Post Policy</a></li>
+          <li><a href="#top">Accessibility Statement</a></li>
+        </ul>
+      </nav>
+      <p class="copy">Copyright 1487–2026 Mandrake &amp; Moonstone Apothecaries. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  'use strict';
+
+  var status = document.getElementById('live-status');
+  function announce(msg){ if (status){ status.textContent = ''; setTimeout(function(){ status.textContent = msg; }, 60); } }
+
+  var FOCUSABLE = 'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
+
+  /* ---- header disclosures: search + region ---- */
+  function disclosure(btnId, panelId, onOpen){
+    var btn = document.getElementById(btnId);
+    var panel = document.getElementById(panelId);
+    if (!btn || !panel) return null;
+
+    function close(returnFocus){
+      if (panel.hidden) return;
+      panel.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      if (returnFocus) btn.focus();
+    }
+    function open(){
+      closeAll(btn);
+      panel.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      if (onOpen) onOpen(panel);
+    }
+    btn.addEventListener('click', function(){
+      if (panel.hidden) open(); else close(true);
+    });
+    panel.addEventListener('keydown', function(e){
+      if (e.key === 'Escape'){ e.stopPropagation(); close(true); }
+    });
+    document.addEventListener('click', function(e){
+      if (panel.hidden) return;
+      if (panel.contains(e.target) || btn.contains(e.target)) return;
+      close(false);
+    });
+    return { btn: btn, panel: panel, close: close };
+  }
+
+  var disclosures = [];
+  function closeAll(except){
+    disclosures.forEach(function(d){ if (d && d.btn !== except) d.close(false); });
+  }
+
+  disclosures.push(disclosure('search-btn', 'search-panel', function(panel){
+    var input = panel.querySelector('input');
+    if (input) input.focus();
+  }));
+  disclosures.push(disclosure('locale-btn', 'locale-panel', function(panel){
+    var first = panel.querySelector('a');
+    if (first) first.focus();
+  }));
+
+  var form = document.getElementById('search-form');
+  if (form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var q = (document.getElementById('site-search').value || '').trim();
+      announce(q
+        ? 'Search is not connected on this demonstration page, so nothing was searched for "' + q + '". Use the section links in the menu instead.'
+        : 'Enter a word to search for, then press Search. Search is not connected on this demonstration page.');
+    });
+  }
+
+  /* ---- mobile drawer: modal dialog with focus trap ---- */
+  var menuBtn = document.getElementById('menu-btn');
+  var drawer = document.getElementById('drawer');
+  var drawerClose = document.getElementById('drawer-close');
+  var scrim = drawer ? drawer.querySelector('.drawer-scrim') : null;
+  var lastFocus = null;
+
+  function openDrawer(){
+    closeAll(null);
+    lastFocus = document.activeElement;
+    drawer.hidden = false;
+    document.body.classList.add('is-locked');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    var first = drawer.querySelector(FOCUSABLE + ':not([tabindex="-1"])');
+    (drawerClose || first).focus();
+  }
+  function closeDrawer(){
+    if (!drawer || drawer.hidden) return;
+    drawer.hidden = true;
+    document.body.classList.remove('is-locked');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+  }
+
+  if (menuBtn && drawer){
+    menuBtn.addEventListener('click', function(){
+      if (drawer.hidden) openDrawer(); else closeDrawer();
+    });
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (scrim) scrim.addEventListener('click', closeDrawer);
+
+    drawer.addEventListener('click', function(e){
+      var link = e.target.closest('a[href^="#"]');
+      if (link) closeDrawer();
+    });
+
+    drawer.addEventListener('keydown', function(e){
+      if (e.key === 'Escape'){ closeDrawer(); return; }
+      if (e.key !== 'Tab') return;
+      var items = [].slice.call(drawer.querySelectorAll(FOCUSABLE)).filter(function(el){
+        return el.offsetParent !== null && el.getAttribute('tabindex') !== '-1';
+      });
+      if (!items.length) return;
+      var first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    });
+
+    /* drawer only exists under 1080px — close it if the viewport grows */
+    var mq = window.matchMedia('(min-width:1081px)');
+    var onChange = function(e){ if (e.matches) closeDrawer(); };
+    if (mq.addEventListener) mq.addEventListener('change', onChange);
+    else if (mq.addListener) mq.addListener(onChange);
+  }
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){ closeAll(null); }
+  });
+
+  /* ---- hero scroll control: moves focus, not just the viewport ---- */
+  var scrollBtn = document.getElementById('scroll-btn');
+  if (scrollBtn){
+    scrollBtn.addEventListener('click', function(){
+      var target = document.getElementById('thesis');
+      if (!target) return;
+      target.setAttribute('tabindex', '-1');
+      target.scrollIntoView({ block: 'start' });
+      target.focus({ preventScroll: true });
+    });
+  }
+
+  /* ---- decorative starfield ---- */
+  var c = document.getElementById('stars');
+  if (c && c.getContext){
+    var ctx = c.getContext('2d');
+    var reduceMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var pts = [];
+
+    function size(){
+      var r = c.parentElement.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      c.width = Math.max(1, r.width * dpr);
+      c.height = Math.max(1, r.height * dpr);
+      c.style.width = r.width + 'px';
+      c.style.height = r.height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      pts = [];
+      var n = Math.round(r.width * r.height / 9000);
+      for (var i = 0; i < n; i++){
+        pts.push({
+          x: Math.random() * r.width,
+          y: Math.random() * r.height,
+          r: Math.random() * 1.5 + 0.3,
+          p: Math.random() * Math.PI * 2,
+          s: Math.random() * 0.9 + 0.25
+        });
+      }
+    }
+
+    function draw(t){
+      var reduce = reduceMq.matches;
+      var r = c.getBoundingClientRect();
+      ctx.clearRect(0, 0, r.width, r.height);
+      for (var i = 0; i < pts.length; i++){
+        var p = pts[i];
+        var a = reduce ? 0.5 : 0.35 + 0.35 * Math.sin(t / 1400 * p.s + p.p);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(226,241,232,' + a.toFixed(3) + ')';
+        ctx.fill();
+      }
+      if (!reduce) requestAnimationFrame(draw);
+    }
+
+    size();
+    requestAnimationFrame(draw);
+    window.addEventListener('resize', function(){ size(); if (reduceMq.matches) draw(0); });
+  }
+})();
+</script>
+</body>
+</html>
