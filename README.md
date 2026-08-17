@@ -3,7 +3,7 @@
 A single-page concept site for a fictional wizarding apothecary house, built as a
 static page with no build step, no dependencies, and no external requests.
 
-**Live:** http://utsav23.com/demofiles3/
+<!-- **Live:** http://utsav23.com/demofiles3/ -->
 
 ## What this is
 
